@@ -1,34 +1,3 @@
-# import ijson
-# import itertools
-# import csv
-# import gc
-
-# def json_to_csv_chunked(json_file_path, csv_file_path, chunk_size=1000):
-#     with open(json_file_path, 'rb') as j, open(csv_file_path, 'a', newline='', encoding='utf-8') as c:
-#         items = ijson.items(j, 'reports.item')
-#         first_chunk = list(itertools.islice(items, chunk_size))
-#         if not first_chunk: return
-#         headers = set(k for item in first_chunk for k in flatten(item).keys())
-#         csv.writer(c).writerow(sorted(headers))
-#         for item in first_chunk: write_row(item, headers, c)
-#         for chunk in iter(lambda: list(itertools.islice(items, chunk_size)), []):
-#             for item in chunk: write_row(item, headers, c)
-#             gc.collect()
-
-# def flatten(obj, prefix="", delimiter="_"):
-#     res = {}
-#     if isinstance(obj, dict):
-#         for k, v in obj.items(): res.update(flatten(v, f'{prefix}{k}{delimiter}', delimiter))
-#     elif isinstance(obj, list): res[prefix[:-1]] = '; '.join(str(i) for i in obj)
-#     else: res[prefix[:-1]] = str(obj).replace('\n', ' ')
-#     return res
-
-# def write_row(item, headers, csv_file):
-#     flat = flatten(item)
-#     csv.writer(csv_file).writerow([flat.get(h, '') for h in sorted(headers)])
-
-# json_to_csv_chunked('/home/kmorin/Research/Ethan/tax_class_by_cgr/ncbi_dataset/metadata.json', 'metadata.csv')
-
 import ijson
 import itertools
 import csv
@@ -91,6 +60,6 @@ def write_reduced_row(item, headers, csv_file):
     csv.writer(csv_file).writerow(row)
 
 json_to_csv_chunked_reduced(
-    "/home/kmorin/Research/Ethan/tax_class_by_cgr/Enterobacteriaceae/metadata.json",
-    "/home/kmorin/Research/Ethan/tax_class_by_cgr/Enterobacteriaceae/metadata_reduced.csv",
+    "salmonella_dataset.json",
+    "salmonella_dataset.csv",
 )
