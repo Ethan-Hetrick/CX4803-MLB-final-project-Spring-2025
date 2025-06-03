@@ -73,9 +73,11 @@ done < "$genomes_list_part"
 
 ## Generate FCGRs
 
+Using kmc v3.2.4
+
 ### Step 1: Generate K-mer counts
 
-```
+```bash
 while IFS= read -r line; do
     filename=$(basename "$line")
     genome="${filename%.*}"
@@ -92,4 +94,64 @@ while IFS= read -r line; do
         ~/543/kmc11/
 done < "assembly_list2.txt"
 ```
+#### Option 2
 
+```bash
+# Generate k-mer counts
+singularity run kmc\:3.2.4--haf24da9_3 kmc \
+    -v \
+    -k6 \
+    -m16 \
+    -sm \
+    -ci0 \
+    -cs100000 \
+    -b -t4 \
+    -fm /scicomp/scratch/rqu4/salmonella/ncbi_dataset/data/GCA_000006945.2/GCA_000006945.2_ASM694v2_genomic.fna kmc-test.txt /tmp/kmc-tmp
+
+#### Convert kmc indexes to readable format
+
+```bash
+# Convert them to readable format
+singularity run kmc\:3.2.4--haf24da9_3 kmc_tools transform kmc-test.txt dump kmc-test.txt
+```
+
+### Step 2: Generate FCGRs
+
+Using the python package [complexCGR](https://github.com/AlgoLab/complexCGR/tree/master?tab=readme-ov-file)
+
+```python
+# Install complexcgr
+!pip install complexcgr
+
+from complexcgr import FCGR
+from complexcgr import FCGRKmc
+import numpy as np
+
+kmer = 6
+fcgr = FCGRKmc(kmer)
+
+arr = fcgr("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/kmc-test.txt") # k-mer counts ordered in a matrix of 2^k x 2^k
+
+# to visualize the distribution of k-mers. 
+# Frequencies are scaled between [min, max] values. 
+# White color corresponds to the minimum value of frequency
+# Black color corresponds to the maximum value of frequency
+fcgr.plot(arr)
+
+# Save as a numpy array
+np.save("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/test-fcgr.npy",arr)
+```
+
+## QC Genomes
+
+Using QUAST v5.3.0
+
+```bash
+singularity run quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
+    --fast \
+    --space-efficient \
+    --memory-efficient \
+    --threads 12 \
+      
+
+```
