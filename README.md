@@ -142,6 +142,16 @@ fcgr.plot(arr)
 np.save("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/test-fcgr.npy",arr)
 ```
 
+### Parallelized version available in bin
+
+```
+python3 bin/fcgr.py \
+    -k $kmer \
+    -t $NSLOTS \
+    $input_list \
+    $outdir
+```
+
 ## QC Genomes
 
 Using QUAST v5.3.0
@@ -161,3 +171,18 @@ while IFS= read -r genome_fasta_path; do
 done < "$genomes_list_part"
 ```
 
+## Train models
+
+We will train 5 models for the class project trained on the FCGR representations made from assemblies. We will test it on 3 tasks: Genus and species (Enterobacteriaecea dataset), and strain level (Salmonella dataset)
+
+1. A classic image classifier: resnet50, resNext101, etc.
+    - Paper [here](https://ecoevorxiv.org/repository/view/6567/) describes methods
+2. Unsupervised clustering approach: DeLUCS
+    - https://github.com/millanp95/DeLUCS
+3. PanSpace FCGR architecture
+    - Publication: https://doi.org/10.1101/2025.03.19.644115
+    - GitHub: https://github.com/pg-space/panspace
+4. Vision transformer (ViT)
+    - Paper [here](https://ecoevorxiv.org/repository/view/6567/) describes methods
+5. Simple model: smashallow MLP, shallow 1D CNN, etv
+    - Paper above also has examples of this
