@@ -147,11 +147,17 @@ np.save("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/test-fcgr.npy",
 Using QUAST v5.3.0
 
 ```bash
-singularity run quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
-    --fast \
-    --space-efficient \
-    --memory-efficient \
-    --threads 12 \
-      
+# Loop through each genome path listed in genomes_part_aa
+while IFS= read -r genome_fasta_path; do
+    genome_name_no_ext=$(basename "${genome_fasta_path%.fna}" | sed 's/\.fasta$//' | sed 's/\.fastq$//')
 
+    singularity run /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
+        --fast \
+        --space-efficient \
+        --memory-efficient \
+        --threads 8 \
+        --output-dir ./$genome_name_no_ext \
+        "$genome_fasta_path"
+done < "$genomes_list_part"
 ```
+
