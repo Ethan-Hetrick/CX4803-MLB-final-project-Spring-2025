@@ -1,5 +1,9 @@
 # FCGR PROJECT NOTES
 
+## Study design
+
+We will evaluate various ML algorithms that use Chaos Game Representation for taxonomic ID of bacteria. Specifically, we are interested in whether or not these techniques can accurately classify strains of bacteria. We have two datasets from NCBI: Enterobacteriacae (~10K genomes), Salmonella (~500K genomes) 
+
 ## Download Salmnoella dataset
 
 ### Download summary
@@ -171,6 +175,16 @@ while IFS= read -r genome_fasta_path; do
 done < "$genomes_list_part"
 ```
 
+## Cull genomes
+
+- Remove poor quality genomes (define what that is)
+- Remove dumplicate genomes
+
+## Batch genomes by subtype
+
+- Keep strains/species with >=12 reps
+- Split data into training, validation, and test datasets 80:20:20
+
 ## Train models
 
 We will train 5 models for the class project trained on the FCGR representations made from assemblies. We will test it on 3 tasks: Genus and species (Enterobacteriaecea dataset), and strain level (Salmonella dataset)
@@ -184,5 +198,13 @@ We will train 5 models for the class project trained on the FCGR representations
     - GitHub: https://github.com/pg-space/panspace
 4. Vision transformer (ViT)
     - Paper [here](https://ecoevorxiv.org/repository/view/6567/) describes methods
-5. Simple model: smashallow MLP, shallow 1D CNN, etv
+5. Simple model: smashallow MLP, shallow 1D CNN, etc.
     - Paper above also has examples of this
+
+## Benchmark comparison
+
+- Use ANI with best cutoff (skani)
+
+## Model Validation
+ - Cross-entropy loss
+- AUROC
