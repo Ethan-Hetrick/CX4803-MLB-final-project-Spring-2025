@@ -9,17 +9,17 @@ source /etc/profile
 #$ -l h_rt=7:00:00:00
 #$ -j y
 #$ -o seqsero2_leftovers.log # Unique log file
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 # Define the input file for this specific job
-genomes_list='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/seqsero2_leftovers.txt'
+genomes_list='$HOME/PROJECTS/GaTech/FCGR_classifier/seqsero2_leftovers.txt'
 
 # Define the *absolute base path* that contains the GCA_* directories.
 # This variable should reflect '/scicomp/scratch/rqu4/salmonella/ncbi_dataset/data/'
 GENOME_BASE_PATH="/scicomp/scratch/rqu4/salmonella/ncbi_dataset/data/"
 
 # Change into working directory
-cd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/seqsero2_results_leftovers
+cd $HOME/PROJECTS/GaTech/FCGR_classifier/seqsero2_results_leftovers
 
 # Load module
 module load seqsero2/1.3.1

@@ -8,19 +8,19 @@ source /etc/profile
 #$ -q extralong.q
 #$ -j y
 #$ -o quast_job_ac.log # Unique log file
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 # Define the input file for this specific job
-genomes_list_part='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/genomes_part_ac'
+genomes_list_part='$HOME/PROJECTS/GaTech/FCGR_classifier/genomes_part_ac'
 
 # Change into working directory
-cd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/quast_results
+cd $HOME/PROJECTS/GaTech/FCGR_classifier/quast_results
 
 # Loop through each genome path listed in genomes_part_ac
 while IFS= read -r genome_fasta_path; do
     genome_name_no_ext=$(basename "${genome_fasta_path%.fna}" | sed 's/\.fasta$//' | sed 's/\.fastq$//')
 
-    singularity run /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
+    singularity run $HOME/PROJECTS/GaTech/FCGR_classifier/quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
         --fast \
         --space-efficient \
         --memory-efficient \

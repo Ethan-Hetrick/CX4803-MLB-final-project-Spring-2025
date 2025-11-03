@@ -9,10 +9,10 @@ source /etc/profile
 #$ -q all.q
 #$ -j y
 #$ -o mlst_job_leftover_3.log
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
-genomes_list='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers_list.txt'
-output_results_file='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers_mlst_results.tsv'
+genomes_list='$HOME/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers_list.txt'
+output_results_file='$HOME/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers_mlst_results.tsv'
 
 cat "$genomes_list" | xargs -P $NSLOTS -I {} bash -c \
     "singularity run images/mlst:2.23.0--hdfd78af_1 mlst --scheme \"senterica_achtman_2\" --threads 1 --quiet \"\$1\" >> \"$output_results_file\"" _ {}

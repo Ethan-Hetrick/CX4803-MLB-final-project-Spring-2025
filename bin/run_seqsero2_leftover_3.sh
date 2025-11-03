@@ -9,13 +9,13 @@ source /etc/profile
 #$ -q all.q
 #$ -j y
 #$ -o seqsero2_job_leftover_3.log
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 module load seqsero2/1.3.1
 
-genomes_list='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/seqsero2_leftovers.txt'
+genomes_list='$HOME/PROJECTS/GaTech/FCGR_classifier/seqsero2_leftovers.txt'
 
-cd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/seqsero2_leftovers_3
+cd $HOME/PROJECTS/GaTech/FCGR_classifier/seqsero2_leftovers_3
 
 cat "$genomes_list" | xargs -P "$NSLOTS" -I {} bash -c '
   genome_full_path="$1"

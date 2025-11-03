@@ -9,12 +9,12 @@ source /etc/profile
 #$ -q all.q
 #$ -j y
 #$ -o mlst_job_ab.log # Unique log file
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 # Define the input file for this specific job
-genomes_list_part='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/genomes_part_ab'
+genomes_list_part='$HOME/PROJECTS/GaTech/FCGR_classifier/genomes_part_ab'
 # Define the output file for this specific job
-output_results_file='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/mlst_results_ab.tsv'
+output_results_file='$HOME/PROJECTS/GaTech/FCGR_classifier/mlst_results_ab.tsv'
 
 echo "Starting MLST processing for genomes in: $genomes_list_part"
 

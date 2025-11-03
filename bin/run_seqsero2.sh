@@ -9,13 +9,13 @@ source /etc/profile
 #$ -l h_rt=7:00:00:00
 #$ -j y
 #$ -o seqsero2.log # Unique log file
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 # Define the input file for this specific job
-genomes_list='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/genomes_list.txt'
+genomes_list='$HOME/PROJECTS/GaTech/FCGR_classifier/genomes_list.txt'
 
 # Change into working directory
-cd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/seqsero2_results
+cd $HOME/PROJECTS/GaTech/FCGR_classifier/seqsero2_results
 
 # Load module
 module load seqsero2/1.3.1

@@ -9,12 +9,12 @@ source /etc/profile
 #$ -q extralong.q
 #$ -j y
 #$ -o mlst_job_leftover_2.log # Unique log file
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 # Define the input file for this specific job
-genomes_list_part='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers.txt'
+genomes_list_part='$HOME/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers.txt'
 # Define the output file for this specific job
-output_results_file='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers_mlst_results.tsv'
+output_results_file='$HOME/PROJECTS/GaTech/FCGR_classifier/mlst_leftovers_mlst_results.tsv'
 
 # Ensure the output file is empty/created before starting
 rm -f "$output_results_file"

@@ -58,9 +58,9 @@ I split the inputs into 4 parts to run in parallel (`split -n l/4 genomes_list.t
 
 ```bash
 # Define the input file for this specific job
-genomes_list_part='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/genomes_part_ad'
+genomes_list_part='$HOME/PROJECTS/GaTech/FCGR_classifier/genomes_part_ad'
 # Define the output file for this specific job
-output_results_file='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/mlst_results_ad.tsv'
+output_results_file='$HOME/PROJECTS/GaTech/FCGR_classifier/mlst_results_ad.tsv'
 
 echo "Starting MLST processing for genomes in: $genomes_list_part"
 
@@ -134,7 +134,7 @@ import numpy as np
 kmer = 6
 fcgr = FCGRKmc(kmer)
 
-arr = fcgr("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/kmc-test.txt") # k-mer counts ordered in a matrix of 2^k x 2^k
+arr = fcgr("$HOME/PROJECTS/GaTech/FCGR_classifier/kmc-test.txt") # k-mer counts ordered in a matrix of 2^k x 2^k
 
 # to visualize the distribution of k-mers. 
 # Frequencies are scaled between [min, max] values. 
@@ -143,7 +143,7 @@ arr = fcgr("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/kmc-test.txt
 fcgr.plot(arr)
 
 # Save as a numpy array
-np.save("/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/test-fcgr.npy",arr)
+np.save("$HOME/PROJECTS/GaTech/FCGR_classifier/test-fcgr.npy",arr)
 ```
 
 ### Parallelized version available in bin
@@ -165,7 +165,7 @@ Using QUAST v5.3.0
 while IFS= read -r genome_fasta_path; do
     genome_name_no_ext=$(basename "${genome_fasta_path%.fna}" | sed 's/\.fasta$//' | sed 's/\.fastq$//')
 
-    singularity run /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
+    singularity run $HOME/PROJECTS/GaTech/FCGR_classifier/quast\:5.3.0--py313pl5321h5ca1c30_2 quast \
         --fast \
         --space-efficient \
         --memory-efficient \

@@ -13,6 +13,6 @@ source /etc/profile
 module load miniconda/24.11.1
 eval "$(conda shell.bash hook)"
 
-conda activate /scicomp/home-pure/rqu4/my_conda_envs/ncbi
+conda activate $HOME/my_conda_envs/ncbi
 
 datasets summary genome taxon "Salmonella" > salmonella_dataset.json

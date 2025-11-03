@@ -9,13 +9,13 @@ source /etc/profile
 #$ -q all.q
 #$ -j y
 #$ -o kmc_dump.log # Unique log file
-#$ -wd /scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier
+#$ -wd $HOME/PROJECTS/GaTech/FCGR_classifier
 
 set -e
 
-results_dir='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/kmc_dump'
-files_dir='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/kmc_results'
-singularity_image='/scicomp/home-pure/rqu4/PROJECTS/GaTech/FCGR_classifier/images/kmc:3.2.4--haf24da9_3'
+results_dir='$HOME/PROJECTS/GaTech/FCGR_classifier/kmc_dump'
+files_dir='$HOME/PROJECTS/GaTech/FCGR_classifier/kmc_results'
+singularity_image='$HOME/PROJECTS/GaTech/FCGR_classifier/images/kmc:3.2.4--haf24da9_3'
 
 find "$files_dir" -maxdepth 1 -name "*.kmc_pre" -print0 | xargs -0 -P ${NSLOTS} -I {} bash -c '
     file="$1"
