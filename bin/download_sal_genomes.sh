@@ -8,7 +8,7 @@ cd /scratch/salmonella
 datasets download genome taxon "Salmonella" \
     --dehydrated \
     --filename ./salmonella_dataset.zip \
-    --no-progressbar \pwd
+    --no-progressbar \
     --assembly-version 'latest' \
     --api-key "${API_KEY}"
 
