@@ -15,7 +15,7 @@ eval "$(conda shell.bash hook)"
 
 conda activate $HOME/my_conda_envs/ncbi
 
-cd /scicomp/scratch/rqu4/salmonella
+cd /scratch/salmonella
 
 # datasets download genome taxon "Salmonella" \
 #     --dehydrated \
