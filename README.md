@@ -110,7 +110,7 @@ singularity run kmc\:3.2.4--haf24da9_3 kmc \
     -ci0 \
     -cs100000 \
     -b -t4 \
-    -fm /scicomp/scratch/rqu4/salmonella/ncbi_dataset/data/GCA_000006945.2/GCA_000006945.2_ASM694v2_genomic.fna kmc-test.txt /tmp/kmc-tmp
+    -fm /scratch/salmonella/ncbi_dataset/data/GCA_000006945.2/GCA_000006945.2_ASM694v2_genomic.fna kmc-test.txt /tmp/kmc-tmp
 
 #### Convert kmc indexes to readable format
 
