@@ -1,0 +1,6 @@
+batch_normalization: true
+hidden_activation: relu
+kmer: 5
+latent_dim: 128
+learning_rate: 0.001
+num_classes: 232

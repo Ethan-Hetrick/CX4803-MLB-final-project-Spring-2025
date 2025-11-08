@@ -1,0 +1,4 @@
+dataset,kmer,f1_val_macro,f1_test_macro
+MLST,5,,0.8389042019844055
+Serotype,5,,0.6924231648445129
+Subspecies,5,,0.88706374168396
