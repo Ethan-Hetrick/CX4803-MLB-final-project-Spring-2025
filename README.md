@@ -118,7 +118,7 @@ Performance generally improved with *k-mer*=7 compared to *k-mer*=5, particularl
 
 <br>
 
-[a] <img src="figures/f1_violin_kmer.png" width="400" height="300" /> [b] <img src="figures/f1_violin_architeture.png" width="400" height="300" />
+[a] <img src="figures/f1_violin_kmer.png" width="300" height="300" /> [b] <img src="figures/f1_violin_architeture.png" width="300" height="300" />
 
 > Figure 5: [a] Violin plot of 5-mer and 7-mer performance across all classification tasks and architectures. [b] Violin plot of architectures across all classification tasks and *k-mer* sizes.
 
