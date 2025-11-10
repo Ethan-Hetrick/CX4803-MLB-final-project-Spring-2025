@@ -172,4 +172,4 @@ Cartes, J. A., et al. (2025). PanSpace: Fast and scalable indexing for massive b
 
 ### Statement on the Use of Generative AI
 
-ChatGPT was used for some basic code syntax, code debugging and file formatting tasks. All ideas, writing and analyses were generated without the use of generative AI.
+ChatGPT was used for some basic code syntax, code debugging and file formatting tasks. All ideas, writing and analyses were done without the use of generative AI.
