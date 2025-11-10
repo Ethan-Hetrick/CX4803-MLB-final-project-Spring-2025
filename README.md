@@ -118,7 +118,7 @@ Performance generally improved with *k-mer*=7 compared to *k-mer*=5, particularl
 
 <br>
 
-[a] <img src="figures/f1_violin_kmer.png" width="400" height="215" /> [b] <img src="figures/f1_violin_architeture.png" width="400" height="400" />
+[a] <img src="figures/f1_violin_kmer.png" width="300" /> [b] <img src="figures/f1_violin_architeture.png" width="300" />
 
 > Figure 5: [a] Violin plot of 5-mer and 7-mer performance across all classification tasks and architectures. [b] Violin plot of architectures across all classification tasks and *k-mer* sizes.
 
@@ -180,4 +180,5 @@ Cartes, J. A., et al. (2025). PanSpace: Fast and scalable indexing for massive b
 
 
 ChatGPT was used for some basic code syntax, code debugging and file formatting tasks. All ideas, writing and analyses were done without the use of generative AI.
+
 
