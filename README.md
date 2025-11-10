@@ -1,6 +1,6 @@
 # Simple Linear Models Using Frequency Chaos Game Representations Achieve High Accuracy in Low-Level Taxonomic Classification of *Salmonelleae*
 
-*Final Project for Machine Learning in Computational Biology CSE7850/CX4803-MLB at Georgia Institute of Technology*
+*Final Project for Machine Learning in Computational Biology CX4803-MLB at Georgia Institute of Technology*
 
 ### Author: Ethan Hetrick
 
