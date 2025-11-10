@@ -118,7 +118,7 @@ Performance generally improved with *k-mer*=7 compared to *k-mer*=5, particularl
 
 <br>
 
-[a] <img src="figures/f1_violin_kmer.png" width="250" height="200" /> [b] <img src="figures/f1_violin_architeture.png" width="250" height="200" />
+[a] <img src="figures/f1_violin_kmer.png" width="480" height="300" /> [b] <img src="figures/f1_violin_architeture.png" width="480" height="400" />
 
 > Figure 5: [a] Violin plot of 5-mer and 7-mer performance across all classification tasks and architectures. [b] Violin plot of architectures across all classification tasks and *k-mer* sizes.
 
@@ -177,5 +177,6 @@ de Medeiros, B. A., Cai, L., Flynn, P. J., Yan, Y., Duan, X., Marinho, L. C., ..
 Cartes, J. A., et al. (2025). PanSpace: Fast and scalable indexing for massive bacterial databases. bioRxiv, 2025–03.
 
 ### Statement on the Use of Generative AI
+
 
 ChatGPT was used for some basic code syntax, code debugging and file formatting tasks. All ideas, writing and analyses were done without the use of generative AI.
