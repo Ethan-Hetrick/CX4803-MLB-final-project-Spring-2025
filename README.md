@@ -140,7 +140,7 @@ An important next step is to identify which features are most important for taxo
 
 ## Data availability
 
-All necessary scripts and data to recreate this study is available at this GitHub repo <https://github.com/Ethan-Hetrick/FCGR_classifier/tree/main>. 
+All necessary scripts and data to recreate this study is available at this GitHub repo <https://github.com/Ethan-Hetrick/FCGR_classifier/tree/main>.
 
 ## Citations
 
@@ -162,8 +162,14 @@ Zhang, S., Den Bakker, H. C., Li, S., Chen, J., Dinsmore, B. A., Lane, C., ... &
 
 Pearce, M. E., Langridge, G. C., Lauer, A. C., Grant, K., Maiden, M. C., & Chattaway, M. A. (2021). An evaluation of the species and subspecies of the genus Salmonella with whole genome sequence data: Proposal of type strains and epithets for novel S. enterica subspecies VII, VIII, IX, X and XI. Genomics, 113(5), 3152–3162.
 
+OpenAI. (2023). ChatGPT (Mar 14 version) [Large language model].
+
 Abd-Alhalem, S. M., et al. (2024). Deep learning approach to taxonomic classification with CNN-ELM. ITC-Egypt.
 
 de Medeiros, B. A., Cai, L., Flynn, P. J., Yan, Y., Duan, X., Marinho, L. C., ... & Davis, C. C. (2025). A composite universal DNA signature for the Tree of Life. Nature Ecology & Evolution, 1–15.
 
 Cartes, J. A., et al. (2025). PanSpace: Fast and scalable indexing for massive bacterial databases. bioRxiv, 2025–03.
+
+### Statement on the Use of Generative AI
+
+ChatGPT was used for some basic code syntax, code debugging and file formatting tasks. All ideas, writing and analyses were generated without the use of generative AI.
