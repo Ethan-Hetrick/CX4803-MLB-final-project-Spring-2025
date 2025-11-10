@@ -2,6 +2,8 @@
 
 *Final Project for Machine Learning in Computational Biology CSE7850/CX4803-MLB at Georgia Institute of Technology*
 
+### Author: Ethan Hetrick
+
 ## Abstract
 
 As Next-Generation Sequencing data continues to grow at an exponential rate, scalable methods for genome comparison are in high-demand. For example, public health surveillance and environmental monitoring laboratories routinely query large sequence database for organism identification. However, traditional sequence alignment algorithms have become infeasible for querying at the current scale. Consequently, alignment-free sequence identification methods have gained traction in recent years. However, the heuristic methods which improve scalability typically lack high-resolution at low taxonmic levels (e.g. subspecies, strain), and still often run into scaling issues given their underlying data structures and algorithm time-complexity. Here, I apply **Frequency Chaos Game Representations (FCGRs)** to encode genome assembly *k-mer* counts into compact 2D matrices, providing light-weight genome representations which capture broad evolutionary trends. Using *Salmonella sp.* as a model organism, I demonstrate that simple machine learning algorithms can accurately predict subspecies and strain-level classifcations from FCGR-encoded genomes at scale.
@@ -141,6 +143,10 @@ An important next step is to identify which features are most important for taxo
 ## Data availability
 
 All necessary scripts and data to recreate this study is available at this GitHub repo <https://github.com/Ethan-Hetrick/FCGR_classifier/tree/main>.
+
+## Contributions
+
+Thanks to my partner and colleague Kathryn Morin for late night hack-a-thons on some of the CNN code, discussing this project *ad nauseam* with me, and allowing me use her nice laptop for the analysis.
 
 ## Citations
 
