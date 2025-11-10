@@ -57,7 +57,7 @@ For the serotype subset, only named *Salmonella enterica subspecies enterica* se
 
 *Salmonella bongori* was included in the subspecies subset as while it is it's own species, it is routine to screen against the five subspecies of *Salmonella enterica* along side *Salmonella bongori* in surveillance and monitoring of *Salmonella*.
 
-In order to create balanced classes, all three subsets were randomly downsampled to 100 representatives per class, and classes with fewer than 100 representatives were droppped. The resulting subsets contained 232, 104, and 6 unique MLST, serotype, and subspecies classes, respectively. Each class was then randomly divided into training, validation, and test subsets using a 64/16/20 split. I chose an aggressive test split was because redundancy at the strain and subspecies levels should reduce the need for a large training set, and the additional test data should lead to a more robust evaluation of model performance.
+In order to create balanced classes, all three subsets were randomly downsampled to 100 representatives per class, and classes with fewer than 100 representatives were droppped. The resulting subsets contained 232, 104, and 6 unique MLST, serotype, and subspecies classes, respectively. Each class was then randomly divided into training, validation, and test subsets using a 64/16/20 split. I chose an aggressive test split as redundancy at the strain and subspecies levels should reduce the need for a large training set, and the additional test data should lead to a more robust evaluation of model performance.
 
 Data cleaning, including label preparation and formatting, was performed using a combination of the Pandas Python library and standard Unix CLI tools such as `awk` and `sed`.
 
@@ -93,7 +93,7 @@ Performance generally improved with *k-mer*=7 compared to *k-mer*=5, particularl
 | 5 subspecies of *S. enterica* including *S. bongori* | <img src="figures/salmonella_pca_5mers.png" width="500"/> | <img src="figures/salmonella_pca_7mers.png" width="500"/> |
 | 5 subspecies of *S. enterica* excluding *S. bongori* | <img src="figures/salmonella_pca_5mer_no_bongori.png" width="500"/> | <img src="figures/salmonella_pca_7mer_no_bongori.png" width="500"/> |
 
-> Figure 3: PCA plots of 5-mer and 7-mer FCGRs of 5 *S. enterica* subspecies with and without *S. bongori*. Displays that the subspecies are linearly-seperable. 
+> Figure 3: PCA plots of 5-mer and 7-mer FCGRs of 5 *S. enterica* subspecies with and without *S. bongori*.
 
 <br>
 
@@ -116,7 +116,7 @@ Performance generally improved with *k-mer*=7 compared to *k-mer*=5, particularl
 
 <br>
 
-[a] <img src="figures/f1_violin_kmer.png" width="500" height="300" /> [b] <img src="figures/f1_violin_architeture.png" width="500" height="300" />
+[a] <img src="figures/f1_violin_kmer.png" width="400" height="300" /> [b] <img src="figures/f1_violin_architeture.png" width="400" height="300" />
 
 > Figure 5: [a] Violin plot of 5-mer and 7-mer performance across all classification tasks and architectures. [b] Violin plot of architectures across all classification tasks and *k-mer* sizes.
 
@@ -124,9 +124,9 @@ Performance generally improved with *k-mer*=7 compared to *k-mer*=5, particularl
 
 Results from this analysis clearly show that the FCGR features are linearly correlated, and that high model capacity degrades performance for classification tasks, as non-linearity is not needed for accurate classification. The simple linear models I tested performed better than any of the models shown in Table 2 at low-level taxonomic classification. This is a crucial finding, as these linear models are lightweight, faster to train, and require much less computational power to perform. In fact, the above models were trained on a laptop GPU, demonstrating their ability to scale. The linear models are also much more interpretable for scientists, making them an appealing alternative to the higher-complexity models that dominate FCGR research.
 
-K-mer counting is fast and requires very little computational resources, and the FCGR generation from the k-mer counts is trivial. The resulting FCGR matrix, stored as a NumPy array, is around ~100 kilobytes—approximately a 1,000-fold reduction in size compared to an average bacterial genome assembly gzipped FASTA file (~1 MB)—and offers even greater reduction potential for larger genomes. This vastly improves the portability of these datasets compared to standard genome formats. Recent research shows that taxonomic classification can be performed from FCGRs generated directly from sequencing reads, avoiding the need for genome assembly entirely and further reducing the computational requirements of taxonomic classification (de Medeiros et al., 2025). Building upon these benefits, Abd-Alhalem et al. (2024) achieved high accuracy in taxonomic classification using sequences as short as 500 base pairs, suggesting broad applications for low-throughput genome data and classification of metagenome-assembled genomes (MAGs).
+*K-mer* counting is fast and requires very little computational resources, and the FCGR generation from the *k-mer* counts is trivial. The resulting FCGR matrix, stored as a NumPy array, is around ~100 kilobytes—approximately a 1,000-fold reduction in size compared to an average bacterial genome assembly gzipped FASTA file (~1 MB)—and offers even greater reduction potential for larger genomes. This vastly improves the portability of these datasets compared to standard genome formats. Recent research shows that taxonomic classification can be performed from FCGRs generated directly from sequencing reads, avoiding the need for genome assembly entirely and further reducing the computational requirements of taxonomic classification (de Medeiros et al., 2025). Building upon these benefits, Abd-Alhalem et al. (2024) achieved high accuracy in taxonomic classification using sequences as short as 500 base pairs, suggesting broad applications for low-throughput genome data and classification of metagenome-assembled genomes (MAGs).
 
-The biological implications of these findings suggest that the frequency of short k-mers has sufficient resolution power to capture broad evolutionary trends even at low taxonomic levels, remaining robust across various definitions of a biological strain. The underlying biological basis of this relationship remains unclear, but I hypothesize that these k-mer lengths encode important genomic features such as codon usage and bias, repetitive structures, and GC frequency, which appear to be species-specific. A widely used tool, JSpecies, implements tetranucleotide frequencies as a method for taxonomic classification—another example of how frequencies of short genomic fragments encode a surprising amount of biological significance.
+The biological implications of these findings suggest that the frequency of short *k-mers* has sufficient resolution power to capture broad evolutionary trends even at low taxonomic levels, remaining robust across various definitions of a biological strain. The underlying biological basis of this relationship remains unclear, but I hypothesize that these *k-mer* lengths encode important genomic features such as codon bias, repetitive structures, and GC frequency, which appear to be species-specific. A widely used tool, JSpecies (Richter et. al, 2016), implements tetranucleotide frequencies as a method for taxonomic classification—another example of how frequencies of short genomic fragments encode a surprising amount of biological significance.
 
 ## Conclusion
 
@@ -134,7 +134,7 @@ As the amount of genomic data continues to increase, and as developing countries
 
 ## Future Direction
 
-Further research is warranted to determine whether the findings of this study apply to other taxa and input data types (e.g., raw sequencing reads). Performance evaluations should be conducted before generalizing these results to different use cases. Future studies should prioritize the application of simple, linear models, as demonstrated here, rather than high-capacity models. Additional research is also needed to elucidate the underlying biological reasons why these simple k-mer representations capture broad evolutionary trends consistently across various subtyping methods.
+Further research is warranted to determine whether the findings of this study apply to other taxa and input data types (e.g., sequencing reads). Performance evaluations should be conducted before generalizing these results to different use cases. Future studies should prioritize the application of simple, linear models, as demonstrated here, rather than high-capacity models. Additional research is also needed to elucidate the underlying biological reasons why these simple *k-mer* representations capture broad evolutionary trends consistently across various subtyping methods.
 
 An important next step is to identify which features are most important for taxonomic classification and why. Techniques such as Lasso and Ridge regression, along with the calculation of Shapley values, may provide valuable insights into assessing feature importance.
 
@@ -155,6 +155,8 @@ Neme, A., Nido, A., Mireles, V., & Miramontes, P. (2008). The self-organized cha
 Gurevich, A., Saveliev, V., Vyahhi, N., & Tesler, G. (2013). QUAST: quality assessment tool for genome assemblies. Bioinformatics, 29(8), 1072–1075.
 
 Deorowicz, S., Kokot, M., Grabowski, S., & Debudaj-Grabysz, A. (2015). KMC 2: fast and resource-frugal k-mer counting. Bioinformatics, 31(10), 1569–1576.
+
+Michael Richter, Ramon Rosselló-Móra, Frank Oliver Glöckner, Jörg Peplies, JSpeciesWS: a web server for prokaryotic species circumscription based on pairwise genome comparison, Bioinformatics, Volume 32, Issue 6, March 2016, Pages 929–931, https://doi.org/10.1093/bioinformatics/btv681 
 
 Zhang, S., Den Bakker, H. C., Li, S., Chen, J., Dinsmore, B. A., Lane, C., ... & Deng, X. (2019). SeqSero2: rapid and improved Salmonella serotype determination using whole-genome sequencing data. Applied and Environmental Microbiology, 85(23), e01746–19.
 
