@@ -1,4 +1,4 @@
-# Simple Linear Models Using Frequency Chaos Game Representations Achieve High Accuracy in Low-Level Taxonomic Classification of *Salmonelleae*
+# Low Capacity Models Using Frequency Chaos Game Representations Achieve High Accuracy in Low-Level Taxonomic Classification of *Salmonelleae*
 
 *Final Project for Machine Learning in Computational Biology CX4803-MLB at Georgia Institute of Technology*, Spring 2025
 
